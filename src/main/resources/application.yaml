@@ -10,6 +10,17 @@ spring:
           group: email-group  
       default-binder: solace
 
+  mail:
+    host: smpt.gmail.com
+    port: 587
+    username: ${MAIL}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        properties:
+          mail.smtp.auth: true
+          mail.smtp.starttls.enable: true
+
 solace:
   java:
     host: tcp://localhost:55555
