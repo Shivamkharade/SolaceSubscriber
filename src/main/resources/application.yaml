@@ -1,3 +1,21 @@
 spring:
   application:
     name: SolaceSubscriber
+
+  cloud:
+    stream:
+      bindings:
+        userLogin-in-0:
+          destination: user/login
+          group: email-group  
+      default-binder: solace
+
+solace:
+  java:
+    host: tcp://localhost:55555
+    msgVpn: default
+    clientUsername: admin
+    clientPassword: admin
+
+server:
+  port: 8082

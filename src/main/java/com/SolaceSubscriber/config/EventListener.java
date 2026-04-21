@@ -1,0 +1,21 @@
+package com.SolaceSubscriber.config;
+
+import java.util.function.Consumer;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+import com.SolaceSubscriber.event.UserLoginEvent;
+
+@Component
+public class EventListener {
+	
+	@Bean
+	public Consumer<UserLoginEvent> userLogin(){
+		
+		return event ->{
+			System.out.println("Recived Event : " + event.getEmail());
+		};
+	}
+	
+}
