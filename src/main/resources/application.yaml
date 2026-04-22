@@ -11,15 +11,17 @@ spring:
       default-binder: solace
 
   mail:
-    host: smpt.gmail.com
+    host: smtp.gmail.com
     port: 587
     username: ${MAIL}
     password: ${MAIL_PASSWORD}
     properties:
       mail:
-        properties:
-          mail.smtp.auth: true
-          mail.smtp.starttls.enable: true
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true   # 🔥 add this (important)
 
 solace:
   java:

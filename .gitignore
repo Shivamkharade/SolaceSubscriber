@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+src/main/java/com/SolaceSubscriber/config/TestEnv.java
 src/main/resources/passwords.env
 *.env
 ### STS ###
