@@ -5,11 +5,22 @@ spring:
   cloud:
     stream:
       bindings:
-        userLogin-in-0:
-          destination: user/login
-          group: email-group  
-      default-binder: solace
 
+        # Subscriber 1 : Email
+        userLoginEmail-in-0:
+          destination: user/login
+          group: email-group
+
+        # Subscriber 2 : Store in DB
+        userLoginStore-in-0:
+          destination: user/login
+          group: store-group
+
+      default-binder: solace
+    function:
+      definition: userLoginEmail;userLoginStore
+
+# Mail app connection
   mail:
     host: smtp.gmail.com
     port: 587
@@ -21,14 +32,38 @@ spring:
           auth: true
           starttls:
             enable: true
-            required: true   # 🔥 add this (important)
+            required: true
 
+# Database connection
+  datasource:
+    url: jdbc:mysql://localhost:3306/Eventpub
+    username: root
+    password: SUNNY189@shivam
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+      platform: mysql
+
+# solace broker connection for message
 solace:
   java:
     host: tcp://localhost:55555
     msgVpn: default
     clientUsername: admin
     clientPassword: admin
+
 
 server:
   port: 8082
