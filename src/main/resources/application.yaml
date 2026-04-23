@@ -8,12 +8,12 @@ spring:
 
         # Subscriber 1 : Email
         userLoginEmail-in-0:
-          destination: user/login
+          destination: user/login,ecomm/user/login
           group: email-group
 
         # Subscriber 2 : Store in DB
         userLoginStore-in-0:
-          destination: user/login
+          destination: user/login,ecomm/user/login
           group: store-group
 
       default-binder: solace

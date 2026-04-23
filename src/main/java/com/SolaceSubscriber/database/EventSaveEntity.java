@@ -22,6 +22,8 @@ public class EventSaveEntity {
 	
 	private String email;
 	
+	private String role;
+	
 	@Column(
 			name = "event_time",
 			columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
@@ -69,6 +71,15 @@ public class EventSaveEntity {
 	public void setEventTime(LocalDateTime eventTime) {
 		this.eventTime = eventTime;
 	}
+	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public EventSaveEntity(Long id, String user_id, String username, String email, LocalDateTime eventTime) {
 		super();
@@ -79,6 +90,15 @@ public class EventSaveEntity {
 		this.eventTime = eventTime;
 	}
 	
+	public EventSaveEntity(Long id, String user_id, String username, String email, String role) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.username = username;
+		this.email = email;
+		this.role = role;
+	}
+
 	public EventSaveEntity() {
 		
 	}

@@ -10,6 +10,8 @@ public class UserLoginEvent {
 	
 	private String email;
 	
+	private String role;
+	
 	private LocalDateTime logintime;
 
 	public String getId() {
@@ -44,6 +46,14 @@ public class UserLoginEvent {
 		this.logintime = logintime;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public UserLoginEvent(String id, String username, String email, LocalDateTime logintime) {
 		super();
 		this.id = id;
@@ -52,6 +62,16 @@ public class UserLoginEvent {
 		this.logintime = logintime;
 	}
 	
+	
+	
+	public UserLoginEvent(String id, String username, String email, String role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.role = role;
+	}
+
 	public UserLoginEvent() {
 		
 	}
