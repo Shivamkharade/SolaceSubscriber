@@ -20,6 +20,7 @@ public class DatabaseService {
 		eventSaveEntity.setUser_id(userLoginEvent.getId());
 		eventSaveEntity.setEmail(userLoginEvent.getEmail());
 		eventSaveEntity.setUsername(userLoginEvent.getUsername());
+		eventSaveEntity.setRole(userLoginEvent.getRole());
 		repository.save(eventSaveEntity);
 	}
 	
