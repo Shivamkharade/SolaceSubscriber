@@ -24,7 +24,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${MAIL}
+    username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
     properties:
       mail:
@@ -37,8 +37,8 @@ spring:
 # Database connection
   datasource:
     url: jdbc:mysql://localhost:3306/Eventpub
-    username: root
-    password: SUNNY189@shivam
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
