@@ -24,8 +24,15 @@ public class EventListener {
 	public Consumer<UserLoginEvent> userLoginEmail(){
 		
 		return event ->{
-			System.out.println("Recived Event : " + event.getEmail());
-			emailService.sendEmail(event.getEmail());
+			
+			try {
+	            System.out.println("Received Event: " + event.getEmail());
+
+	            emailService.sendEmail(event.getEmail());
+
+	        } catch (Exception e) {
+	            System.out.println("Email failed but skipping retry: " + e.getMessage());
+	        }
 		};
 	}
 	
