@@ -7,7 +7,9 @@ spring:
       bindings:
 
         # Subscriber 1 : Email
-        userLoginEmail-in-0:
+        userLoginEmail-in-0: 
+          consumer:
+            max-attempts: 1
           destination: user/login,ecomm/user/login
           group: email-group
 
